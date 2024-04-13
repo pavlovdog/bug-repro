@@ -11,9 +11,9 @@ import { KernelSmartAccount, KernelAccountClient } from '@zerodev/sdk'
 import { createPublicClient, http, Transport } from 'viem';
 
 // todo update these values
-const PAYMASTER = 'https://rpc.zerodev.app/api/v2/paymaster/{ZERODEV_PROJECT_ID}'
-const BUNDLER = 'https://rpc.zerodev.app/api/v2/bundler/{ZERODEV_PROJECT_ID}'
-const privateKey = '0x';
+const PAYMASTER = 'https://rpc.zerodev.app/api/v2/paymaster/dace5c43-5268-4c22-a4e6-e2e76e5728f5'
+const BUNDLER = 'https://rpc.zerodev.app/api/v2/bundler/dace5c43-5268-4c22-a4e6-e2e76e5728f5'
+const privateKey = '0xedfc5e75503984da574bf4c6cd4e8dbf28c4ae57c34482b41375c548b2323ab1';
 
 const chain = polygonAmoy;
 
@@ -44,6 +44,8 @@ export const createAccount = async () => {
     bundlerTransport: http(BUNDLER),
     middleware: {
       sponsorUserOperation: async ({ userOperation }) => {
+        console.log('sponsoring');
+        console.log(userOperation);
         const paymasterClient = createZeroDevPaymasterClient({
           chain,
           transport: http(PAYMASTER),

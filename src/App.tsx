@@ -15,7 +15,7 @@ function App() {
     const kernelClient = await createAccount();
 
     const contract = getContract({
-      address: '0x34bE7f35132E97915633BC1fc020364EA5134863',
+      address: '0x8e23e5f1FB745EA7f305D05B2904E5c56ED65b0e',
       abi: testNFT,
       client: {
         public: publicClient,
